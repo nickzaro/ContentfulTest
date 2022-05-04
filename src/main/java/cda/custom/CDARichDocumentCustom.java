@@ -27,8 +27,16 @@ public class CDARichDocumentCustom extends CDACustom {
 
 	@Override
 	public CDACustom get() {
+		CDACustom cda = new CDARichDocumentCustom();
+		cda.hash.putAll(this.hash);
+		return cda;
+	}
+
+
+	@Override
+	public boolean put(Object entry) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 }

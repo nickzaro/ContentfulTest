@@ -30,4 +30,10 @@ public class CDAOtherCustom extends CDACustom {
 		return cda;
 	}
 
+	@Override
+	public boolean put(Object entry) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

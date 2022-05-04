@@ -3,8 +3,6 @@ package cda.parser;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import cda.custom.CDAArrayListCustom;
 import cda.custom.CDAAssetCustom;
 import cda.custom.CDACustom;
@@ -15,14 +13,13 @@ import cda.custom.CDARichDocumentCustom;
 public class CDAParser {
 
 	List<CDACustom> cDACustomList = new ArrayList<CDACustom>();
-	//List<HashMap<String, Object>> cDAOuts = new ArrayList<HashMap<String, Object>>();
 	HashMap<String, Object> cDAOuts = new HashMap<String, Object>();
 	private static CDAParser cdaParser = null;
 
 	private CDAParser() {
 		cDACustomList.add(new CDAAssetCustom());
 		cDACustomList.add(new CDAEntryCustom());
-		// cDACustomList.add(new CDARichDocumentCustom());
+		cDACustomList.add(new CDARichDocumentCustom());
 		cDACustomList.add(new CDAArrayListCustom());
 		cDACustomList.add(new CDAOtherCustom());
 	}
@@ -33,10 +30,21 @@ public class CDAParser {
 		return cdaParser;
 	}
 
-	public CDACustom evaluar(String key,Object field) {
+	public CDACustom evaluar(String key, Object field) {
 		CDACustom cdaResp = null;
 		for (CDACustom cda : cDACustomList) {
-			if (cda.put(key,field)) {
+			if (cda.put(key, field)) {
+				cdaResp = cda.get();
+			}
+		}
+		return cdaResp;
+
+	}
+
+	public CDACustom evaluar(Object field) {
+		CDACustom cdaResp = null;
+		for (CDACustom cda : cDACustomList) {
+			if (cda.put(field)) {
 				cdaResp = cda.get();
 			}
 		}

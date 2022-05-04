@@ -28,8 +28,8 @@ public class ContenfulTest {
 
 		CDAParser parser = CDAParser.getInstance();
 	//	List<CDACustom> mapEntry = new ArrayList<CDACustom>();
-	//	mapEntry.add(parser.add("createdAt", entry.attrs().get("createdAt")));
-	//	mapEntry.add(parser.add("updatedAt", entry.attrs().get("updatedAt")));
+	parser.evaluar("createdAt", entry.attrs().get("createdAt"));
+	parser.evaluar("updatedAt", entry.attrs().get("updatedAt"));
 		// mapEntry.putAll(entry.rawFields());
 		for (Map.Entry<String, Object> ent : entry.rawFields().entrySet()) {
 			
