@@ -3,7 +3,6 @@
   <groupId>cda</groupId>
   <artifactId>cda</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
   <name>TestConentful</name>
   
   <repositories>

@@ -14,12 +14,20 @@ public class CDAOtherCustom extends CDACustom {
 	public boolean put(String key, Object entry) {
 		if ((CONTENTFUL_CDA.contains(entry.getClass().getSimpleName())))
 			return false;
+		this.hash.clear();
 		this.hash.put(key, entry.toString());
 		return true;
 	}
 
-	public HashMap<String, Object> get() {
+	public HashMap<String, Object> getHashMap() {
 		return this.hash;
+	}
+
+	@Override
+	public CDACustom get() {
+		CDACustom cda = new CDAOtherCustom();
+		cda.hash.putAll(this.hash);
+		return cda;
 	}
 
 }

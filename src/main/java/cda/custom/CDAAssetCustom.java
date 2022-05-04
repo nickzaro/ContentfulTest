@@ -9,13 +9,21 @@ public class CDAAssetCustom extends CDACustom{
 	public boolean put(String key, Object entry) {
 		if (!(entry instanceof CDAAsset))
 			return false;
+		this.hash.clear();
 		CDAAsset asset = (CDAAsset) entry;
 		this.hash.put(asset.title(), asset.url());
 		return true;
 	}
 
-	public HashMap<String, Object> get() {
+	public HashMap<String, Object> getHashMap() {
 		return this.hash;
+	}
+
+	@Override
+	public CDACustom get() {
+		CDACustom cda = new CDAAssetCustom();
+		cda.hash.putAll(this.hash);
+		return cda;
 	}
 
 }

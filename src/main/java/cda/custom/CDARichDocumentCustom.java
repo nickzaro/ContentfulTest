@@ -20,8 +20,15 @@ public class CDARichDocumentCustom extends CDACustom {
 	}
 
 	
-	public HashMap<String, Object> get() {
+	public HashMap<String, Object> getHashMap() {
 		return this.hash;
+	}
+
+
+	@Override
+	public CDACustom get() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

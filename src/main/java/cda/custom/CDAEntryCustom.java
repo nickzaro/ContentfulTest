@@ -16,18 +16,27 @@ public class CDAEntryCustom extends CDACustom{
 		if (!(entry instanceof CDAEntry))
 			return false;
 		CDAEntry entri = (CDAEntry)entry;
+		this.hash.clear();
+		ArrayList<CDACustom> cdas = new ArrayList<CDACustom>();
 		for( Map.Entry<String, Object> ent : entri.rawFields().entrySet()) {
-			CDAParser.getInstance().add(ent.getKey(), entri.getField(ent.getKey()));
+			cdas.add(CDAParser.getInstance().evaluar(ent.getKey(), entri.getField(ent.getKey())));
 			//TODO: deberia de ser con new para que el parser no tenga un array?
 		}
 		
-		this.hash.put(key,  CDAParser.getInstance().getcDAOuts().toString());
+		this.hash.put(key,  cdas);
 		return true;
 	}
 
 	@Override
-	public HashMap<String, Object> get() {
+	public HashMap<String, Object> getHashMap() {
 		return this.hash;
+	}
+
+	@Override
+	public CDACustom get() {
+		CDACustom cda = new CDAEntryCustom();
+		cda.hash.putAll(this.hash);
+		return cda;
 	}
 
 }

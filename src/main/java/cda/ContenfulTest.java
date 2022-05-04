@@ -33,14 +33,17 @@ public class ContenfulTest {
 		// mapEntry.putAll(entry.rawFields());
 		for (Map.Entry<String, Object> ent : entry.rawFields().entrySet()) {
 			
-			if(parser.add(ent.getKey(), entry.getField(ent.getKey()))) {
+			CDACustom cda;
+			if(( cda = parser.evaluar(ent.getKey(), entry.getField(ent.getKey())))!= null) {
 				System.out.println("TRUE== "+entry.getField(ent.getKey()).getClass() + "--- " + ent.getKey() + " -> "
 						+ entry.getField(ent.getKey()).toString());
+				System.out.println(cda);
 			}
 			else {
 				System.out.println("FALSE=== "+entry.getField(ent.getKey()).getClass() + "--- " + ent.getKey() + " -> "
 						+ entry.getField(ent.getKey()).toString());
 			}
+			
 			//System.out.println(Class.forName("java.util.ArrayList").newInstance());
 		}
 		//mapEntry.stream().forEach(e -> System.out.println(e.get()));
