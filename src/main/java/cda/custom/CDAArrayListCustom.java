@@ -23,7 +23,8 @@ public class CDAArrayListCustom extends CDACustom {
 				cdas.add(CDAParser.getInstance().evaluar(en));
 			else
 				cdas.add(CDAParser.getInstance().evaluar(key, en));
-			//TODO: sacar un padre que solo tenga put de un parametro y el ArrayList array para el tema de los 
+			// TODO: sacar un padre que solo tenga put de un parametro y el ArrayList array
+			// para el tema de los
 			// CDACustomComplex: CDAArrayListCustom y CDAEntryCustom
 		}
 

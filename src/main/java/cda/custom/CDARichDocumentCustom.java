@@ -8,10 +8,10 @@ import com.contentful.rich.html.HtmlProcessor;
 
 public class CDARichDocumentCustom extends CDACustom {
 
-	public boolean put(String key,Object entry) {
+	public boolean put(String key, Object entry) {
 		if (!(entry instanceof CDARichDocument))
 			return false;
-		CDARichDocument ent =(CDARichDocument) entry;
+		CDARichDocument ent = (CDARichDocument) entry;
 		final HtmlProcessor processor = new HtmlProcessor();
 		final HtmlContext context = new HtmlContext();
 		final String html = processor.process(context, (CDARichDocument) ent);
@@ -19,11 +19,9 @@ public class CDARichDocumentCustom extends CDACustom {
 		return true;
 	}
 
-	
 	public HashMap<String, Object> getHashMap() {
 		return this.hash;
 	}
-
 
 	@Override
 	public CDACustom get() {
@@ -31,7 +29,6 @@ public class CDARichDocumentCustom extends CDACustom {
 		cda.hash.putAll(this.hash);
 		return cda;
 	}
-
 
 	@Override
 	public boolean put(Object entry) {

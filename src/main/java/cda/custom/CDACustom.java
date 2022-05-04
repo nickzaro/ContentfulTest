@@ -18,10 +18,6 @@ public abstract class CDACustom {
 
 	@Override
 	public String toString() {
-		if (hash.size() > 0)
-			return hash.toString();
-		else
-			return array.toString();
+		return (hash.size() > 0) ? hash.toString() : array.toString();
 	}
-
 }

@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import com.contentful.java.cda.CDAAsset;
 
-public class CDAAssetCustom extends CDACustom{
+public class CDAAssetCustom extends CDACustom {
 
 	public boolean put(String key, Object entry) {
 		if (!(entry instanceof CDAAsset))
