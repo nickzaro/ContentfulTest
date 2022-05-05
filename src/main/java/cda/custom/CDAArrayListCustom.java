@@ -19,7 +19,7 @@ public class CDAArrayListCustom extends CDACustom {
 		this.hash.clear();
 		ArrayList<CDACustom> cdas = new ArrayList<CDACustom>();
 		for (Object en : entri) {
-			if ((en instanceof CDAEntry))
+			if (en instanceof CDAEntry)
 				cdas.add(CDAParser.getInstance().evaluar(en));
 			else
 				cdas.add(CDAParser.getInstance().evaluar(key, en));
@@ -46,8 +46,9 @@ public class CDAArrayListCustom extends CDACustom {
 
 	@Override
 	public boolean put(Object entry) {
-		// TODO Auto-generated method stub
-		return false;
+		if (!(entry instanceof ArrayList))
+			return false;
+		throw new UnsupportedOperationException();
 	}
 
 }

@@ -32,8 +32,9 @@ public class CDAOtherCustom extends CDACustom {
 
 	@Override
 	public boolean put(Object entry) {
-		// TODO Auto-generated method stub
-		return false;
+		if ((CONTENTFUL_CDA.contains(entry.getClass().getSimpleName())))
+			return false;
+		throw new UnsupportedOperationException();
 	}
 
 }

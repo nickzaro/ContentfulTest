@@ -28,8 +28,9 @@ public class CDAAssetCustom extends CDACustom {
 
 	@Override
 	public boolean put(Object entry) {
-		// TODO Auto-generated method stub
-		return false;
+		if (!(entry instanceof CDAAsset))
+			return false;
+		throw new UnsupportedOperationException();
 	}
 
 }

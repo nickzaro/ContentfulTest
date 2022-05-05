@@ -24,9 +24,10 @@ public class ContenfulTest {
 		CDAEntry entry = client.fetch(CDAEntry.class).one("7i1r6q6MxFdH2V7Rp191gH");
 
 		CDAParser parser = CDAParser.getInstance();
-		parser.evaluar("createdAt", entry.attrs().get("createdAt"));
-		parser.evaluar("updatedAt", entry.attrs().get("updatedAt"));
-
+		ArrayList<CDACustom> cdas = new ArrayList<CDACustom>();
+		cdas.add(parser.evaluar("createdAt", entry.attrs().get("createdAt")));
+		cdas.add(parser.evaluar("updatedAt", entry.attrs().get("updatedAt")));
+		
 		for (Map.Entry<String, Object> ent : entry.rawFields().entrySet()) {
 
 			CDACustom cda;
@@ -34,14 +35,15 @@ public class ContenfulTest {
 				System.out.println("TRUE== " + entry.getField(ent.getKey()).getClass() + "--- " + ent.getKey() + " -> "
 						+ entry.getField(ent.getKey()).toString());
 				System.out.println(cda);
+				cdas.add(cda);
 			} else {
 				System.out.println("FALSE=== " + entry.getField(ent.getKey()).getClass() + "--- " + ent.getKey()
 						+ " -> " + entry.getField(ent.getKey()).toString());
 			}
 
 		}
-
-		parser.getcDAOuts().forEach((k, v) -> System.out.println("Key: " + k + ": Value: " + v));
+		System.out.println();
+		cdas.forEach((v) -> System.out.println(v));
 
 	}
 

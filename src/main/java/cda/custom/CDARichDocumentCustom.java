@@ -32,8 +32,9 @@ public class CDARichDocumentCustom extends CDACustom {
 
 	@Override
 	public boolean put(Object entry) {
-		// TODO Auto-generated method stub
-		return false;
+		if (!(entry instanceof CDARichDocument))
+			return false;
+		throw new UnsupportedOperationException();
 	}
 
 }
