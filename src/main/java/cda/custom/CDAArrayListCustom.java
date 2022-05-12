@@ -18,11 +18,16 @@ public class CDAArrayListCustom extends CDACustom {
 		ArrayList entri = (ArrayList) entry;
 		this.hash.clear();
 		ArrayList<CDACustom> cdas = new ArrayList<CDACustom>();
+		HashMap<String, Object> hashs = new HashMap<String, Object>();
 		for (Object en : entri) {
+			CDACustom cda;
 			if (en instanceof CDAEntry)
-				cdas.add(CDAParser.getInstance().evaluar(en));
+				cda=CDAParser.getInstance().evaluar(en);
 			else
-				cdas.add(CDAParser.getInstance().evaluar(key, en));
+				cda= CDAParser.getInstance().evaluar(key, en);
+			
+			hashs.putAll(cda.getHashMap());
+			cdas.add(cda);
 			// TODO: sacar un padre que solo tenga put de un parametro y el ArrayList array
 			// para el tema de los
 			// CDACustomComplex: CDAArrayListCustom y CDAEntryCustom
