@@ -38,7 +38,6 @@ public class CDAParser {
 			}
 		}
 		return cdaResp;
-
 	}
 
 	public CDACustom evaluar(Object field) {
@@ -49,7 +48,6 @@ public class CDAParser {
 			}
 		}
 		return cdaResp;
-
 	}
 
 	public HashMap<String, Object> getcDAOuts() {

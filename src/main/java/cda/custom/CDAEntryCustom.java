@@ -1,6 +1,5 @@
 package cda.custom;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,16 +15,12 @@ public class CDAEntryCustom extends CDACustom {
 			return false;
 		CDAEntry entri = (CDAEntry) entry;
 		this.hash.clear();
-		this.array.clear();
-		ArrayList<CDACustom> cdas = new ArrayList<CDACustom>();
 		HashMap<String, Object> hashs = new HashMap<String, Object>();
 		for (Map.Entry<String, Object> ent : entri.rawFields().entrySet()) {
 			CDACustom cda = CDAParser.getInstance().evaluar(ent.getKey(), entri.getField(ent.getKey()));
 			hashs.putAll(cda.getHashMap());
-			cdas.add(cda);
 		}
-		this.hash.put(key,hashs);
-		//this.hash.put(key, cdas);
+		this.hash.put(key, hashs);
 		return true;
 	}
 
@@ -35,16 +30,12 @@ public class CDAEntryCustom extends CDACustom {
 			return false;
 		CDAEntry entri = (CDAEntry) entry;
 		this.hash.clear();
-		this.array.clear();
-		ArrayList<CDACustom> cdas = new ArrayList<CDACustom>();
 		HashMap<String, Object> hashs = new HashMap<String, Object>();
 		for (Map.Entry<String, Object> ent : entri.rawFields().entrySet()) {
 			CDACustom cda = CDAParser.getInstance().evaluar(ent.getKey(), entri.getField(ent.getKey()));
 			hashs.putAll(cda.getHashMap());
-			cdas.add(cda);
 		}
 		this.hash.putAll(hashs);
-		this.array.addAll(cdas);
 		return true;
 	}
 
@@ -57,7 +48,6 @@ public class CDAEntryCustom extends CDACustom {
 	public CDACustom get() {
 		CDACustom cda = new CDAEntryCustom();
 		cda.hash.putAll(this.hash);
-		cda.array.addAll(this.array);
 		return cda;
 	}
 
