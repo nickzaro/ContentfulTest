@@ -18,11 +18,14 @@ public class CDAEntryCustom extends CDACustom {
 		this.hash.clear();
 		this.array.clear();
 		ArrayList<CDACustom> cdas = new ArrayList<CDACustom>();
+		HashMap<String, Object> hashs = new HashMap<String, Object>();
 		for (Map.Entry<String, Object> ent : entri.rawFields().entrySet()) {
-			cdas.add(CDAParser.getInstance().evaluar(ent.getKey(), entri.getField(ent.getKey())));
+			CDACustom cda = CDAParser.getInstance().evaluar(ent.getKey(), entri.getField(ent.getKey()));
+			hashs.putAll(cda.getHashMap());
+			cdas.add(cda);
 		}
-
-		this.hash.put(key, cdas);
+		this.hash.put(key,hashs);
+		//this.hash.put(key, cdas);
 		return true;
 	}
 
