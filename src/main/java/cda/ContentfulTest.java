@@ -14,7 +14,7 @@ public class ContentfulTest {
 		//System.out.println(CDAManager.fetch("2EPWCBO8HeMdY5tRDYJxkI"));
 		
 		// System.out.println(CDAManager.fetch("3PeLjc7ZcnQTqPWghwjPKM"));
-		System.out.println(CDAManager.fetchWithContentType("Footer"));
+		System.out.println(CDAManager.fetchWithContentType("accInicioBloques"));
 		
 		
 		
